@@ -3,9 +3,14 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
-
-
+  AllProfits = []
+  for i in prices:
+    priceIndex = prices.index(i)
+    for j in range(priceIndex + 1, len(prices)):
+      priceDifference = prices[j] - prices[priceIndex]
+      AllProfits.append(priceDifference)
+  return max(AllProfits)
+    
 if __name__ == '__main__':
   # This is just some code to accept inputs from the command line
   parser = argparse.ArgumentParser(description='Find max profit from prices.')
